@@ -1,153 +1,102 @@
+
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Flight {
 
-    private double price;
-
-    private String destination;
-
-    private String flightDuration;
-
-    private String flightNumber;
-
-    private String numberLayover;
-
+    private String date;
     private String origin;
+    private String arrival;
+    private ArrayList<User> passengers;
+    private int id;
+    private int price;
+    private int capacity;
 
-    private String route;
-    
-    private Plane plane;
-
-    public Flight(double price, String destination, String flightDuration, String flightNumber, String numberLayover, String origin, String route, Plane plane) {
-        this.price = price;
-        this.destination = destination;
-        this.flightDuration = flightDuration;
-        this.flightNumber = flightNumber;
-        this.numberLayover = numberLayover;
+    public Flight(int id, String date, String origin, String arrival, int price, int capacity) {
+        this.date = date;
         this.origin = origin;
-        this.route = route;
-        this.plane = plane;
-    }
-
-    /**
-     * @return the price
-     */
-    public double getPrice() {
-        return price;
-    }
-
-    /**
-     * @param price the price to set
-     */
-    public void setPrice(double price) {
+        this.arrival = arrival;
         this.price = price;
+        this.capacity = capacity;
+        this.passengers = new ArrayList();
+        this.id = id;
+    }
+    /*
+    in this method evaluate the size of the arraylist and allows delete a 
+    passager
+    @param deletingPassager method to evoke the deleter 
+    */
+    public boolean deletingPassager(String id){
+        for(int i=0; 1<passengers.size();i++){
+            if (passengers.get(i).equals(id)){
+                passengers.remove(i);
+                capacity++;
+                return true;
+            }
+        }
+        return false;
     }
 
-    /**
-     * @return the destination
-     */
-    public String getDestination() {
-        return destination;
+    public int getId() {
+        return id;
     }
 
-    /**
-     * @param destination the destination to set
-     */
-    public void setDestination(String destination) {
-        this.destination = destination;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    /**
-     * @return the flightDuration
-     */
-    public String getFlightDuration() {
-        return flightDuration;
+    public int getCapacity() {
+        return capacity;
     }
 
-    /**
-     * @param flightDuration the flightDuration to set
-     */
-    public void setFlightDuration(String flightDuration) {
-        this.flightDuration = flightDuration;
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+    public void addPassenger(User user){
+        passengers.add(user);
+        capacity --;
+    }
+    public String getDate() {
+        return date;
     }
 
-    /**
-     * @return the flightNumber
-     */
-    public String getFlightNumber() {
-        return flightNumber;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    /**
-     * @param flightNumber the flightNumber to set
-     */
-    public void setFlightNumber(String flightNumber) {
-        this.flightNumber = flightNumber;
-    }
-
-    /**
-     * @return the numberLayover
-     */
-    public String getNumberLayover() {
-        return numberLayover;
-    }
-
-    /**
-     * @param numberLayover the numberLayover to set
-     */
-    public void setNumberLayover(String numberLayover) {
-        this.numberLayover = numberLayover;
-    }
-
-    /**
-     * @return the origin
-     */
     public String getOrigin() {
         return origin;
     }
 
-    /**
-     * @param origin the origin to set
-     */
     public void setOrigin(String origin) {
         this.origin = origin;
     }
 
-    /**
-     * @return the route
-     */
-    public String getRoute() {
-        return route;
+    public String getArrival() {
+        return arrival;
     }
 
-    /**
-     * @param route the route to set
-     */
-    public void setRoute(String route) {
-        this.route = route;
+    public void setArrival(String arrival) {
+        this.arrival = arrival;
     }
 
-    /**
-     * @return the plane
-     */
-    public Plane getPlane() {
-        return plane;
+    public ArrayList<User> getPassengers() {
+        return passengers;
     }
 
-    /**
-     * @param plane the plane to set
-     */
-    public void setPlane(Plane plane) {
-        this.plane = plane;
+    public void setPassengers(ArrayList<User> passengers) {
+        this.passengers = passengers;
     }
 
-    @Override
-    public String toString() {
-        return "Flight{" + "price=" + price + ", destination=" +
-                destination + ", flightDuration=" + flightDuration +
-                ", flightNumber=" + flightNumber + ", numberLayover=" +
-                numberLayover + ", origin=" + origin + ", route=" + route + 
-                ", plane=" + plane + '}';
+    public int getPrice() {
+        return price;
     }
-   
 
-  
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    
+
+
 }

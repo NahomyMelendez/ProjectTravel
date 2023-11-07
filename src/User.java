@@ -1,122 +1,64 @@
-import java.util.Date;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 
-public class User extends Person {
-  
-    private boolean visa;
-    private Date age;
-    private String id;
-    private String mobile;
-    private Flight flight;
-    private Itinerary itinerary;
-    private Plane plane;
 
-    public User(Date age, String adress, String email, String id, String mobile,
-            String name, String nationality) {
-        super(age, adress, email, id, mobile, name, nationality);
+import java.util.Scanner;
+
+public class User {
+
+    private String age;
+
+    private String email;
+
+    private String iD;
+
+    private String name;
+
+    public User(String age, String email, String iD, String name) {
+        this.age = age;
+        this.email = email;
+        this.iD = iD;
+        this.name = name;
     }
 
-
-
-    /**
-     * @return the visa
-     */
-    public boolean isVisa() {
-        return visa;
-    }
-
-    /**
-     * @param visa the visa to set
-     */
-    public void setVisa(boolean visa) {
-        this.visa = visa;
-    }
-
-    /**
-     * @return the age
-     */
-    public Date getAge() {
+    public String getAge() {
         return age;
     }
 
-    /**
-     * @param age the age to set
-     */
-    public void setAge(Date age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
-    /**
-     * @return the id
-     */
-    public String getId() {
-        return id;
+    public String getEmail() {
+        return email;
     }
 
-    /**
-     * @param id the id to set
-     */
-    public void setId(String id) {
-        this.id = id;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    /**
-     * @return the mobile
-     */
-    public String getMobile() {
-        return mobile;
+    public String getiD() {
+        return iD;
     }
 
-    /**
-     * @param mobile the mobile to set
-     */
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
+    public void setiD(String iD) {
+        this.iD = iD;
     }
 
-    /**
-     * @return the flight
-     */
-    public Flight getFlight() {
-        return flight;
+    public String getName() {
+        return name;
     }
 
-    /**
-     * @param flight the flight to set
-     */
-    public void setFlight(Flight flight) {
-        this.flight = flight;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    /**
-     * @return the itinerary
-     */
-    public Itinerary getItinerary() {
-        return itinerary;
-    }
-
-    /**
-     * @param itinerary the itinerary to set
-     */
-    public void setItinerary(Itinerary itinerary) {
-        this.itinerary = itinerary;
-    }
-
-    /**
-     * @return the plane
-     */
-    public Plane getPlane() {
-        return plane;
-    }
-
-    /**
-     * @param plane the plane to set
-     */
-    public void setPlane(Plane plane) {
-        this.plane = plane;
-    }
-
- 
     
+    // private String price;
+
+
     
- 
+   
 }

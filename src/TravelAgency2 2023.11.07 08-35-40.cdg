@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="TravelAgency2">
+  <ClassDiagramComponents>
+    <Class name="Flight" package="" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="date" type="String" visibility="private"/>
+        <Field name="origin" type="String" visibility="private"/>
+        <Field name="arrival" type="String" visibility="private"/>
+        <Field name="passengers" type="ArrayList&lt;User&gt;" visibility="private"/>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="price" type="int" visibility="private"/>
+        <Field name="capacity" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="date"/>
+          <Argument type="String" name="origin"/>
+          <Argument type="String" name="arrival"/>
+          <Argument type="int" name="price"/>
+          <Argument type="int" name="capacity"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="deletingPassager" returnType="boolean" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getCapacity" returnType="int" visibility="public"/>
+        <Method name="setCapacity" returnType="void" visibility="public">
+          <Argument type="int" name="capacity"/>
+        </Method>
+        <Method name="addPassenger" returnType="void" visibility="public">
+          <Argument type="User" name="user"/>
+        </Method>
+        <Method name="getDate" returnType="String" visibility="public"/>
+        <Method name="setDate" returnType="void" visibility="public">
+          <Argument type="String" name="date"/>
+        </Method>
+        <Method name="getOrigin" returnType="String" visibility="public"/>
+        <Method name="setOrigin" returnType="void" visibility="public">
+          <Argument type="String" name="origin"/>
+        </Method>
+        <Method name="getArrival" returnType="String" visibility="public"/>
+        <Method name="setArrival" returnType="void" visibility="public">
+          <Argument type="String" name="arrival"/>
+        </Method>
+        <Method name="getPassengers" returnType="ArrayList&lt;User&gt;" visibility="public"/>
+        <Method name="setPassengers" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;User&gt;" name="passengers"/>
+        </Method>
+        <Method name="getPrice" returnType="int" visibility="public"/>
+        <Method name="setPrice" returnType="void" visibility="public">
+          <Argument type="int" name="price"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TravelAgency" package="" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="flights" type="ArrayList&lt;Flight&gt;" visibility="package" isStatic="true"/>
+        <Field name="scanner" type="Scanner" visibility="package"/>
+        <Field name="select" type="int" visibility="package" isStatic="true"/>
+        <Field name="users" type="ArrayList&lt;User&gt;" visibility="package" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="getFlight" returnType="Flight" visibility="public" isStatic="true">
+          <Argument type="int" name="idFlight"/>
+        </Method>
+        <Method name="getUser" returnType="User" visibility="public" isStatic="true">
+          <Argument type="String" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="User" package="" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="age" type="String" visibility="private"/>
+        <Field name="email" type="String" visibility="private"/>
+        <Field name="iD" type="String" visibility="private"/>
+        <Field name="name" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="age"/>
+          <Argument type="String" name="email"/>
+          <Argument type="String" name="iD"/>
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAge" returnType="String" visibility="public"/>
+        <Method name="setAge" returnType="void" visibility="public">
+          <Argument type="String" name="age"/>
+        </Method>
+        <Method name="getEmail" returnType="String" visibility="public"/>
+        <Method name="setEmail" returnType="void" visibility="public">
+          <Argument type="String" name="email"/>
+        </Method>
+        <Method name="getiD" returnType="String" visibility="public"/>
+        <Method name="setiD" returnType="void" visibility="public">
+          <Argument type="String" name="iD"/>
+        </Method>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="Flight" target="User" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="flights" source="TravelAgency" target="Flight" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Flight&gt;"/>
+    <HasRelation name="users" source="TravelAgency" target="User" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;User&gt;"/>
+    <HasRelation name="passengers" source="Flight" target="User" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;User&gt;"/>
+    <UseRelation source="TravelAgency" target="User" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="TravelAgency" target="Flight" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

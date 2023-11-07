@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="TravelAgencyProject">
+  <ClassDiagramComponents>
+    <Class name="Client" package="" visibility="public" xPosition="85.0" yPosition="217.0">
+      <Fields>
+        <Field name="flightType" type="boolean" visibility="private"/>
+        <Field name="visa" type="boolean" visibility="private"/>
+        <Field name="budget" type="String" visibility="private"/>
+        <Field name="specialRequierement" type="String" visibility="private"/>
+        <Field name="person" type="Person" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Flight" package="" visibility="public" xPosition="1143.0" yPosition="703.0">
+      <Fields>
+        <Field name="price" type="double" visibility="private"/>
+        <Field name="destination" type="String" visibility="private"/>
+        <Field name="flightDuration" type="String" visibility="private"/>
+        <Field name="flightNumber" type="String" visibility="private"/>
+        <Field name="numberLayover" type="String" visibility="private"/>
+        <Field name="origin" type="String" visibility="private"/>
+        <Field name="route" type="String" visibility="private"/>
+        <Field name="plane" type="Plane" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Reservation" package="" visibility="public" xPosition="261.0" yPosition="718.0">
+      <Fields>
+        <Field name="baggageQuantity" type="int" visibility="private"/>
+        <Field name="boardingGate" type="String" visibility="private"/>
+        <Field name="departureDate" type="String" visibility="private"/>
+        <Field name="returnDate" type="String" visibility="private"/>
+        <Field name="ticket" type="String" visibility="private"/>
+        <Field name="client" type="Client" visibility="private"/>
+        <Field name="itinerary" type="Itinerary" visibility="private"/>
+        <Field name="flight" type="Flight" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name=" Itinerary" package="" visibility="public" xPosition="710.0" yPosition="692.0">
+      <Fields>
+        <Field name="arrivalTime" type="int" visibility="private"/>
+        <Field name="departureTime" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Invoice" package="" visibility="public" xPosition="253.0" yPosition="417.0">
+      <Fields>
+        <Field name="invoiceDate" type="String" visibility="private"/>
+        <Field name="invoiceDay" type="String" visibility="private"/>
+        <Field name="reservation" type="Reservation" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="User" package="" visibility="public" xPosition="1107.0" yPosition="109.0">
+      <Fields>
+        <Field name="flight" type="Flight" visibility="private"/>
+        <Field name="itinerary" type="Itinerary" visibility="private"/>
+        <Field name="plane" type="Plane" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Person" package="" visibility="public" xPosition="622.0" yPosition="15.0">
+      <Fields>
+        <Field name="age" type="Date" visibility="private"/>
+        <Field name="adress" type="String" visibility="private"/>
+        <Field name="email" type="String" visibility="private"/>
+        <Field name="id" type="String" visibility="private"/>
+        <Field name="mobile" type="String" visibility="private"/>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="nationality" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Plane" package="" visibility="public" xPosition="1032.0" yPosition="422.0">
+      <Fields>
+        <Field name="maximunWeight" type="double" visibility="private"/>
+        <Field name="model" type="String" visibility="private"/>
+        <Field name="passengerCapacity" type="String" visibility="private"/>
+        <Field name="planeId" type="Stirng" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Agency" package="" visibility="public" xPosition="437.0" yPosition="244.0">
+      <Fields>
+        <Field name="company" type="String" visibility="private"/>
+        <Field name="reservation" type="Reservation" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Booking" package="" visibility="public" xPosition="696.0" yPosition="272.0">
+      <Fields>
+        <Field name="flight" type="Flight" visibility="private"/>
+        <Field name="itenerary" type="Itenerary" visibility="private"/>
+        <Field name="plane" type="Plane" visibility="private"/>
+        <Field name="reservation" type="Reservation" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="FlightRegiste" source="Booking" target="Flight" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="flightUser" source="Flight" target="User" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <HasRelation name="FlightRegiste" source="Agency" target="Booking" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <IsRelation name="is" source="User" target="Person"/>
+    <HasRelation name="client" source="Reservation" target="Client" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <HasRelation name="planeFlightR" source="Booking" target="Plane" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="ReservationFlight" source="Booking" target="Reservation" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="ItineraryReservation" source="Reservation" target=" Itinerary" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="user" source="Booking" target="User" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <HasRelation name="planeUser" source="Plane" target="User" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="Flight" source="Reservation" target="Flight" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <HasRelation name="invoiceAgency" source="Agency" target="Invoice" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <HasRelation name="itinerary" source="Flight" target=" Itinerary" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <HasRelation name="Reservation" source="Agency" target="Reservation" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <HasRelation name="has Plane" source="Flight" target="Plane" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <IsRelation name="is" source="Client" target="Person"/>
+    <HasRelation name="ItineraryUser" source=" Itinerary" target="User" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <HasRelation name="invoice" source="Invoice" target="Reservation" type="Composition" sourceCardinality="0..1" targetCardinality="1..1" collectionType="ArrayList"/>
+    <HasRelation name="IteneraryIte" source="Booking" target=" Itinerary" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
